@@ -1,8 +1,11 @@
 package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
+import com.example.demo.entity.SoccerPlayer;
+import com.example.demo.service.UserService;
 
 @RestController
 public class HelloController {
@@ -12,13 +15,24 @@ public class HelloController {
         return "Hello API Response";
     }
 
-    @GetMapping("/api/user")
+    @GetMapping("/api/user/test")
     public Map<String, Object> getUser() {
         return Map.of(
             "id", 1,
             "name", "Yuki",
             "email", "yuki@example.com"
         );
+    }
+
+    private final UserService service;
+
+    public HelloController(UserService service) {
+        this.service = service;
+    }
+
+    @GetMapping("/api/user/{id}")
+    public SoccerPlayer getUser(@PathVariable Integer id) {
+        return service.getUserById(id);
     }
 
 }

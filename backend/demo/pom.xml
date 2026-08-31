@@ -63,6 +63,13 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- 追加 20260321 -->
+		<!-- 追加 20260830 -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>12.2.0.jre11</version>
+		</dependency>
+		<!-- 追加 20260830 -->
 	</dependencies>
 
 	<build>
