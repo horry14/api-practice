@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 import com.example.demo.entity.SoccerPlayer;
 import com.example.demo.service.UserService;
+import java.util.List;
 
 @RestController
 public class HelloController {
@@ -35,4 +36,8 @@ public class HelloController {
         return service.getUserById(id);
     }
 
+    @GetMapping("/api/user/all")
+    public List<SoccerPlayer> getAllUsers() {
+        return service.getUserAll();
+    }
 }
